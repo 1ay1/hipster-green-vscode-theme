@@ -2,6 +2,12 @@
 
 An enhanced port of Tabby/iTerm2's Hipster Green color scheme - a vibrant terminal-inspired theme with classic green-on-black aesthetic, modern syntax highlighting, semantic tokens, and comprehensive IDE integration.
 
+## 📸 Screenshots
+
+### Main Editor View
+![Main Editor](images/Screenshot.png)
+*The enhanced Hipster Green theme showcasing syntax highlighting, bracket colorization, and the distinctive green-on-black aesthetic*
+
 ## ✨ Features
 
 - **🎨 Enhanced Dark Theme** with retro terminal aesthetic
@@ -77,48 +83,7 @@ The theme uses a carefully selected palette of greens and complementary colors, 
 - **Git Deleted**: `#e50000` - Red for deletions
 - **Git Modified**: `#e5e500` - Yellow for changes
 
-## 📸 Screenshots
-
-### Main Editor View
-![Main Editor](images/Screenshot.png)
-*The enhanced Hipster Green theme showcasing syntax highlighting, bracket colorization, and the distinctive green-on-black aesthetic*
-
-### Key Features in Action
-
-#### 🌈 Enhanced Syntax Highlighting & Semantic Tokens
-- **TypeScript/JavaScript**: Rich semantic highlighting for classes, interfaces, and methods
-- **Python**: Special highlighting for decorators, magic functions, and self/cls parameters  
-- **Rust**: Lifetime annotations, attributes, and macro support
-- **C/C++**: Enhanced macro and preprocessor highlighting
-
-#### 🔗 Bracket Pair Colorization
-Six distinct colors for nested brackets make code structure crystal clear:
-- Level 1: `#84c138` (Primary Green)
-- Level 2: `#00a6b2` (Cyan)
-- Level 3: `#e5e500` (Yellow)
-- Level 4: `#b200b2` (Magenta)
-- Level 5: `#00e5e5` (Bright Cyan)
-- Level 6: `#23ff18` (Bright Green)
-
-#### 🔍 Git Integration & Diff Visualization
-- **Enhanced diff colors** with better line and text highlighting
-- **Merge conflict resolution** with distinct header and content backgrounds
-- **Git decorations** for repository status visualization
-- **Blame annotations** with theme-consistent styling
-
-#### 🐛 Comprehensive Debugging Experience
-- **Colored breakpoints**: Red for active, gray for disabled, yellow for unverified
-- **Call stack highlighting** with current frame in bright green
-- **Debug console** with color-coded output (info, warning, error)
-- **Variable inspection** with semantic token colors
-
-#### 🗺️ Enhanced Navigation
-- **Minimap indicators** for errors, warnings, and selections
-- **Overview ruler** with git change indicators
-- **Breadcrumb navigation** styled for better visibility
-- **Symbol icons** color-coded by type (classes, functions, variables, etc.)
-
-## 🚀 Development
+##  Development
 
 To contribute to this theme:
 
