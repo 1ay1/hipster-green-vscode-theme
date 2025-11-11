@@ -1,0 +1,59 @@
+**/.git
+**/.svn
+**/.hg
+**/CVS
+**/.DS_Store
+**/.gitignore
+**/node_modules
+**/out
+**/dist
+**/*.vsix
+**/*.map
+**/.vscode-test/**
+**/.nyc_output
+**/coverage
+**/.eslintcache
+**/.vscode-test-web/**
+
+# GitHub Actions workflows
+**/.github
+
+# Development files
+**/src
+**/test
+**/.editorconfig
+**/.gitattributes
+**/tsconfig.json
+**/webpack.config.js
+**/rollup.config.js
+**/jest.config.js
+**/.eslintrc*
+**/.prettier*
+
+# Documentation development files
+**/docs
+**/*.draft.md
+
+# OS specific files
+**/Thumbs.db
+**/ehthumbs.db
+
+# IDE files
+**/.idea
+**/*.swp
+**/*.swo
+**/*~
+
+# Logs
+**/logs
+**/*.log
+**/npm-debug.log*
+
+# Runtime files
+**/.env
+**/.env.local
+**/.env.*.local
+
+# Temporary files
+**/tmp
+**/temp

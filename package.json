@@ -1,0 +1,59 @@
+{
+  "name": "hipster-green-theme",
+  "displayName": "Hipster Green Theme",
+  "description": "An enhanced port of Tabby/iTerm2's Hipster Green color scheme - a vibrant terminal-inspired theme with classic green-on-black aesthetic, modern syntax highlighting, semantic tokens, and comprehensive IDE integration",
+  "version": "1.1.0",
+  "publisher": "ayushbhat",
+  "author": {
+    "name": "Ayush Bhat",
+    "email": "tfeayush@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1ay1/hipster-green-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/1ay1/hipster-green-vscode-theme/issues"
+  },
+  "homepage": "https://github.com/1ay1/hipster-green-vscode-theme#readme",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+    "keywords": [
+    "theme",
+    "dark theme",
+    "green",
+    "terminal",
+    "hipster",
+    "syntax highlighting",
+    "semantic tokens",
+    "bracket colorization",
+    "git integration",
+    "debugging",
+    "minimap"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Hipster Green Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/hipster-green-color-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "package": "vsce package",
+    "publish": "vsce publish",
+    "vscode:prepublish": "npm run package"
+  },
+  "devDependencies": {
+    "vsce": "^2.15.0"
+  },
+  "dependencies": {
+    "@vscode/vsce": "^3.7.0"
+  }
+}

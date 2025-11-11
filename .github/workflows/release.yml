@@ -1,0 +1,114 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # Triggers on version tags like v1.0.0, v1.1.0, etc.
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      packages: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Install VSCE
+        run: npm install -g @vscode/vsce
+        
+      - name: Verify version matches tag
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          TAG_VERSION=${GITHUB_REF#refs/tags/v}
+          echo "Package version: $PACKAGE_VERSION"
+          echo "Tag version: $TAG_VERSION"
+          if [ "$PACKAGE_VERSION" != "$TAG_VERSION" ]; then
+            echo "Version mismatch! Package.json version ($PACKAGE_VERSION) doesn't match tag ($TAG_VERSION)"
+            exit 1
+          fi
+          
+      - name: Package extension
+        run: vsce package
+        
+      - name: Get package info
+        id: package
+        run: |
+          echo "name=$(node -p "require('./package.json').name")" >> $GITHUB_OUTPUT
+          echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+          echo "filename=${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}.vsix" >> $GITHUB_OUTPUT
+          
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: "Hipster Green Theme v${{ steps.package.outputs.version }}"
+          body: |
+            ## 🎉 Hipster Green Theme v${{ steps.package.outputs.version }}
+            
+            ### Installation
+            
+            1. **From GitHub Release**:
+               - Download the `.vsix` file below
+               - In VS Code: `Ctrl+Shift+P` → "Extensions: Install from VSIX..."
+               - Select the downloaded file
+            
+            2. **From VS Code Marketplace** (if published):
+               - Open Extensions panel (`Ctrl+Shift+X`)
+               - Search "Hipster Green Theme"
+               - Click Install
+            
+            ### Activation
+            
+            1. `Ctrl+K Ctrl+T` (or File → Preferences → Color Theme)
+            2. Select "Hipster Green Dark"
+            
+            ### What's Included
+            
+            - Enhanced syntax highlighting with semantic tokens
+            - Bracket pair colorization with 6 distinct colors
+            - Comprehensive Git integration and diff visualization
+            - Improved debugging experience with color-coded elements
+            - Enhanced minimap, overview ruler, and navigation
+            - Terminal integration with matching theme colors
+            
+            ---
+            
+            **Full changelog**: [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md)
+          draft: false
+          prerelease: false
+          
+      - name: Upload VSIX to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}.vsix
+          asset_name: ${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}.vsix
+          asset_content_type: application/zip
+          
+      - name: Publish to VS Code Marketplace
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') && !contains(github.ref, '-')
+        run: |
+          # Only publish stable releases (not pre-releases with - in version)
+          echo "Publishing to VS Code Marketplace..."
+          # Uncomment the line below when you get a Personal Access Token from Azure DevOps
+          # vsce publish -p ${{ secrets.VSCE_PAT }}
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}

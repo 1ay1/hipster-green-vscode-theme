@@ -1,0 +1,101 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Install VSCE
+        run: npm install -g @vscode/vsce
+        
+      - name: Validate package.json
+        run: |
+          echo "Validating package.json structure..."
+          node -e "
+            const pkg = require('./package.json');
+            if (!pkg.name) throw new Error('Missing name in package.json');
+            if (!pkg.version) throw new Error('Missing version in package.json');
+            if (!pkg.engines || !pkg.engines.vscode) throw new Error('Missing engines.vscode in package.json');
+            if (!pkg.contributes || !pkg.contributes.themes) throw new Error('Missing contributes.themes in package.json');
+            console.log('✅ package.json is valid');
+          "
+          
+      - name: Validate theme file
+        run: |
+          echo "Validating theme file..."
+          node -e "
+            const fs = require('fs');
+            const path = require('path');
+            const pkg = require('./package.json');
+            
+            pkg.contributes.themes.forEach(theme => {
+              const themePath = path.join('.', theme.path);
+              if (!fs.existsSync(themePath)) {
+                throw new Error(\`Theme file not found: \${themePath}\`);
+              }
+              
+              try {
+                const themeContent = JSON.parse(fs.readFileSync(themePath, 'utf8'));
+                if (!themeContent.colors) throw new Error('Missing colors in theme file');
+                if (!themeContent.tokenColors) throw new Error('Missing tokenColors in theme file');
+                console.log(\`✅ Theme file \${themePath} is valid\`);
+              } catch (error) {
+                throw new Error(\`Invalid JSON in theme file \${themePath}: \${error.message}\`);
+              }
+            });
+          "
+          
+      - name: Test packaging
+        run: |
+          echo "Testing VSIX packaging..."
+          vsce package --out test-package.vsix
+          
+      - name: Verify VSIX contents
+        run: |
+          echo "Verifying VSIX package contents..."
+          # Install unzip if needed
+          sudo apt-get update && sudo apt-get install -y unzip
+          
+          # Extract and verify contents
+          unzip -l test-package.vsix
+          
+          # Check for required files
+          unzip -q test-package.vsix -d temp-extract
+          
+          if [ ! -f "temp-extract/extension/package.json" ]; then
+            echo "❌ package.json missing from VSIX"
+            exit 1
+          fi
+          
+          if [ ! -f "temp-extract/extension/themes/hipster-green-color-theme.json" ]; then
+            echo "❌ Theme file missing from VSIX"
+            exit 1
+          fi
+          
+          echo "✅ VSIX package contains required files"
+          
+      - name: Upload test artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-vsix
+          path: test-package.vsix
+          retention-days: 7
