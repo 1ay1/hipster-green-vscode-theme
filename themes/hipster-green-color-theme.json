@@ -221,8 +221,6 @@
     "titleBar.inactiveForeground": "#5a6a50",
     "tree.indentGuidesStroke": "#4a5a40",
     "widget.shadow": "#00000080",
-    
-    // Enhanced bracket pair colorization
     "editorBracketMatch.background": "#08390580",
     "editorBracketMatch.border": "#84c138",
     "editorBracketHighlight.foreground1": "#84c138",
@@ -232,8 +230,6 @@
     "editorBracketHighlight.foreground5": "#00e5e5",
     "editorBracketHighlight.foreground6": "#23ff18",
     "editorBracketHighlight.unexpectedBracket.foreground": "#e50000",
-    
-    // Enhanced Git integration
     "diffEditor.diagonalFill": "#08390540",
     "diffEditor.insertedLineBackground": "#00a60015",
     "diffEditor.removedLineBackground": "#e5000015",
@@ -249,8 +245,6 @@
     "editorOverviewRuler.currentContentForeground": "#00a600",
     "editorOverviewRuler.incomingContentForeground": "#246eb2",
     "editorOverviewRuler.commonContentForeground": "#e5e500",
-    
-    // Enhanced minimap and overview ruler
     "minimap.background": "#100a05",
     "minimap.errorHighlight": "#e50000",
     "minimap.findMatchHighlight": "#bfbf0080",
@@ -263,8 +257,6 @@
     "minimapSlider.activeBackground": "#084c0780",
     "minimapSlider.background": "#08390540",
     "minimapSlider.hoverBackground": "#084c0760",
-    
-    // Enhanced debugging experience
     "debugExceptionWidget.background": "#1a1510",
     "debugExceptionWidget.border": "#e50000",
     "debugTokenExpression.name": "#84c138",
@@ -283,8 +275,6 @@
     "debugIcon.breakpointUnverifiedForeground": "#bfbf00",
     "debugIcon.breakpointCurrentStackframeForeground": "#23ff18",
     "debugIcon.breakpointStackframeForeground": "#84c138",
-    
-    // Enhanced find/replace widget
     "editorWidget.resizeBorder": "#84c138",
     "editorHoverWidget.statusBarBackground": "#0d0905",
     "editorMarkerNavigation.background": "#1a1510",
@@ -293,25 +283,17 @@
     "editorMarkerNavigationWarning.background": "#e5e50020",
     "editorStickyScroll.background": "#1a1510",
     "editorStickyScrollHover.background": "#1f1a15",
-    
-    // Enhanced breadcrumb navigation
     "breadcrumb.foreground": "#5a6a50",
     "breadcrumb.background": "#100a05",
     "breadcrumb.focusForeground": "#84c138",
     "breadcrumb.activeSelectionForeground": "#84c138",
     "breadcrumbPicker.background": "#1a1510",
-    
-    // Enhanced notifications
     "notificationLink.foreground": "#00a6b2",
     "notificationsErrorIcon.foreground": "#e50000",
     "notificationsWarningIcon.foreground": "#e5e500",
     "notificationsInfoIcon.foreground": "#00a6b2",
-    
-    // Enhanced welcome page
     "welcomePage.background": "#100a05",
     "walkThrough.embeddedEditorBackground": "#1a1510",
-    
-    // Enhanced symbol icons
     "symbolIcon.arrayForeground": "#e5e500",
     "symbolIcon.booleanForeground": "#b200b2",
     "symbolIcon.classForeground": "#e5e500",
@@ -845,8 +827,6 @@
     "operator": "#86a93e",
     "decorator": "#e5e500",
     "label": "#e5e500",
-    
-    // Language-specific semantic tokens
     "*.declaration": {
       "fontStyle": "bold"
     },
@@ -868,26 +848,18 @@
     "*.modification": {
       "fontStyle": "underline"
     },
-    
-    // Python-specific
     "decorator.python": "#e5e500",
     "magicFunction.python": "#b200b2",
     "selfParameter.python": "#00a6b2",
     "clsParameter.python": "#00a6b2",
-    
-    // JavaScript/TypeScript specific
     "property.declaration.typescript": "#84c138",
     "method.declaration.typescript": "#00a6b2",
     "function.declaration.typescript": "#00a6b2",
     "interface.declaration.typescript": "#00a6b2",
     "type.declaration.typescript": "#e5e500",
-    
-    // Rust specific  
     "lifetime.rust": "#b200b2",
     "attribute.rust": "#e5e500",
     "macro.rust": "#b200b2",
-    
-    // C/C++ specific
     "macro.c": "#b200b2",
     "macro.cpp": "#b200b2"
   }
