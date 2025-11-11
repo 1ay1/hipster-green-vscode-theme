@@ -2,7 +2,7 @@
   "name": "hipster-green-theme",
   "displayName": "Hipster Green Theme",
   "description": "An enhanced port of Tabby/iTerm2's Hipster Green color scheme - a vibrant terminal-inspired theme with classic green-on-black aesthetic, modern syntax highlighting, semantic tokens, and comprehensive IDE integration",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "publisher": "ayushbhat",
   "author": {
     "name": "Ayush Bhat",
