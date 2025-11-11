@@ -104,7 +104,7 @@ jobs:
           asset_content_type: application/zip
           
       - name: Publish to VS Code Marketplace
-        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') && !contains(github.ref, '-')
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') && !contains(github.ref, '-') && env.VSCE_PAT != ''
         run: |
           echo "Publishing to VS Code Marketplace..."
           vsce publish -p ${{ secrets.VSCE_PAT }}
