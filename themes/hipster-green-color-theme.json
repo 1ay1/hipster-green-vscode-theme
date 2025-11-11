@@ -800,6 +800,119 @@
       "settings": {
         "foreground": "#e5e500"
       }
+    },
+
+    /* TypeScript / JavaScript enhancements */
+    {
+      "scope": [
+        "meta.function-call.ts",
+        "meta.function-call.tsx",
+        "meta.method.ts",
+        "meta.method.tsx",
+        "entity.name.function.ts",
+        "entity.name.function.tsx"
+      ],
+      "settings": {
+        "fontStyle": "bold",
+        "foreground": "#00a6b2"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.type.ts",
+        "entity.name.type.tsx",
+        "support.type.ts",
+        "support.type.tsx"
+      ],
+      "settings": {
+        "fontStyle": "bold",
+        "foreground": "#e5e500"
+      }
+    },
+
+    /* Python enhancements */
+    {
+      "scope": [
+        "meta.decorator.python",
+        "meta.decorator"
+      ],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "#e5e500"
+      }
+    },
+    {
+      "scope": [
+        "support.function.builtin.python",
+        "support.function.builtin"
+      ],
+      "settings": {
+        "foreground": "#246eb2"
+      }
+    },
+    {
+      "scope": [
+        "variable.parameter.function.python",
+        "variable.parameter.python"
+      ],
+      "settings": {
+        "foreground": "#84c138"
+      }
+    },
+
+    /* Rust enhancements */
+    {
+      "scope": [
+        "punctuation.definition.lifetime.rust",
+        "punctuation.definition.lifetime"
+      ],
+      "settings": {
+        "foreground": "#b200b2"
+      }
+    },
+    {
+      "scope": [
+        "meta.attribute.rust",
+        "meta.attribute"
+      ],
+      "settings": {
+        "foreground": "#e5e500"
+      }
+    },
+
+    /* C / C++ enhancements */
+    {
+      "scope": [
+        "meta.preprocessor.c",
+        "meta.preprocessor.c++",
+        "keyword.control.directive"
+      ],
+      "settings": {
+        "foreground": "#b200b2"
+      }
+    },
+    {
+      "scope": [
+        "storage.type.primitive.c",
+        "storage.type.primitive.cpp",
+        "storage.type.c",
+        "storage.type.cpp"
+      ],
+      "settings": {
+        "foreground": "#bfbf00"
+      }
+    },
+
+    /* Markdown improvements */
+    {
+      "scope": [
+        "markup.inline.raw",
+        "fenced_code.block",
+        "markup.fenced_code.block"
+      ],
+      "settings": {
+        "foreground": "#00e5e5"
+      }
     }
   ],
   "semanticTokenColors": {
