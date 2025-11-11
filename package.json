@@ -1,8 +1,8 @@
 {
   "name": "hipster-green-theme",
-  "displayName": "Hipster Green Theme",
-  "description": "An enhanced port of Tabby/iTerm2's Hipster Green color scheme - a vibrant terminal-inspired theme with classic green-on-black aesthetic, modern syntax highlighting, semantic tokens, and comprehensive IDE integration",
-  "version": "1.1.1",
+  "displayName": "Hipster Theme Collection",
+  "description": "A vibrant collection of terminal-inspired themes with modern syntax highlighting, semantic tokens, and comprehensive IDE integration. Includes Dark/Light modes and multiple color variants.",
+  "version": "1.2.0",
   "publisher": "ayushbhat",
   "author": {
     "name": "Ayush Bhat",
@@ -26,7 +26,11 @@
   "keywords": [
     "theme",
     "dark theme",
+    "light theme",
     "green",
+    "blue", 
+    "orange",
+    "purple",
     "terminal",
     "hipster",
     "syntax highlighting",
@@ -34,7 +38,9 @@
     "bracket colorization",
     "git integration",
     "debugging",
-    "minimap"
+    "minimap",
+    "collection",
+    "variants"
   ],
   "contributes": {
     "themes": [
@@ -42,6 +48,46 @@
         "label": "Hipster Green Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/hipster-green-color-theme.json"
+      },
+      {
+        "label": "Hipster Green Light",
+        "uiTheme": "vs",
+        "path": "./themes/hipster-green-light-theme.json"
+      },
+      {
+        "label": "Hipster Green Soothing",
+        "uiTheme": "vs-dark",
+        "path": "./themes/hipster-green-soothing-theme.json"
+      },
+      {
+        "label": "Hipster Blue Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/hipster-blue-dark-theme.json"
+      },
+      {
+        "label": "Hipster Blue Soothing",
+        "uiTheme": "vs-dark",
+        "path": "./themes/hipster-blue-soothing-theme.json"
+      },
+      {
+        "label": "Hipster Orange Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/hipster-orange-dark-theme.json"
+      },
+      {
+        "label": "Hipster Purple Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/hipster-purple-dark-theme.json"
+      },
+      {
+        "label": "Hipster Ocean Soothing",
+        "uiTheme": "vs-dark",
+        "path": "./themes/hipster-ocean-soothing-theme.json"
+      },
+      {
+        "label": "Hipster Forest Soothing",
+        "uiTheme": "vs-dark",
+        "path": "./themes/hipster-forest-soothing-theme.json"
       }
     ]
   },
